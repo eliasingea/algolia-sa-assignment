@@ -21,6 +21,9 @@ const appId = 'FYVTGE51KQ';
 const apiKey = 'ae86a1590b63da56d87c03d60257924e';
 const searchClient = algoliasearch(appId, apiKey);
 
+// This section here is basically creating url parameters based on the given
+// actions. This is useful because it allows us 1 to see queries being done but also
+// is very useful if we wanted to add insights in the future. Good for SEO as well.
 function createURL(searchState) {
   return qs.stringify(searchState, { addQueryPrefix: true });
 }
@@ -70,12 +73,16 @@ function App() {
     }));
   }, []);
 
+  // I decided to use the querySuggestionsPlugin rather than searching the index manually
+  // for its ease of use. I will say that it is slightly less customizable.
   const querySuggestionsPlugin = createQuerySuggestionsPlugin({
     searchClient,
     indexName: 'william_spencer_federated_search_query_suggestions',
   });
 
   return (
+    //basically the creation of the search page. I kept it very simple for this assignment.
+    //I kept the styling of the original SA assignment page
     <div className="app-container">
       <InstantSearch
         searchClient={searchClient}

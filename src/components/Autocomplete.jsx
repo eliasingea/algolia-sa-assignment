@@ -5,6 +5,8 @@ import { autocomplete } from '@algolia/autocomplete-js';
 export function Autocomplete(props) {
   const containerRef = useRef(null);
 
+  //useEffect is automatically called when props change.
+  //this is good because it will keep our states in order.
   useEffect(() => {
     if (!containerRef.current) {
       return undefined;
