@@ -17,8 +17,8 @@ import './app.css';
 
 import logo from './assets/logo.svg';
 
-const appId = 'FYVTGE51KQ';
-const apiKey = 'ae86a1590b63da56d87c03d60257924e';
+const appId = 'SRD7V01PUE';
+const apiKey = '21d2cd80869e20eb0becf4065f058b95';
 const searchClient = algoliasearch(appId, apiKey);
 
 // This section here is basically creating url parameters based on the given
@@ -77,7 +77,7 @@ function App() {
   // for its ease of use. I will say that it is slightly less customizable.
   const querySuggestionsPlugin = createQuerySuggestionsPlugin({
     searchClient,
-    indexName: 'william_spencer_federated_search_query_suggestions',
+    indexName: 'demo_products_query_suggestions',
   });
 
   return (
@@ -86,7 +86,7 @@ function App() {
     <div className="app-container">
       <InstantSearch
         searchClient={searchClient}
-        indexName="william_spencer_federated_search"
+        indexName="demo_products"
         searchState={searchState}
         onSearchStateChange={setSearchState}
         createURL={createURL}
